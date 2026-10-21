@@ -1,0 +1,48 @@
+# Keep the build context small and avoid copying secrets or VCS metadata
+# into the image.
+
+# ── VCS & CI ─────────────────────────────────────────────────────────────────
+.git
+.gitignore
+.github
+.gitattributes
+
+# ── Python ──────────────────────────────────────────────────────────────────
+**/__pycache__
+**/*.py[cod]
+**/*.pyd
+*.so
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.ipynb_checkpoints
+.coverage
+.coverage.*
+htmlcov
+
+# ── Virtual environments ────────────────────────────────────────────────────
+.venv
+venv
+env
+ENV
+.python-version
+
+# ── Secrets ─────────────────────────────────────────────────────────────────
+.env
+.env.*
+*.pem
+*.key
+
+# ── Not needed at runtime ────────────────────────────────────────────────────
+# The dataset and the training notebook are only needed to *train* the model.
+model/prebuild
+tests
+docs
+*.md
+!README.md
+
+# ── Docker files ────────────────────────────────────────────────────────────
+Dockerfile
+.dockerignore
+docker-compose*.yml
+render.yaml

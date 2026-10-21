@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "language-detection-api"
+version = "0.2.0"
+description = "Language detection REST API — scikit-learn Naive Bayes + FastAPI + Docker"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Manohar Govind" }]
+keywords = ["language-detection", "nlp", "fastapi", "scikit-learn", "docker", "naive-bayes"]
+
+dependencies = [
+    "fastapi==0.156.5",
+    "uvicorn[standard]==0.54.0",
+    "pydantic==2.14.1",
+    "scikit-learn==1.7.2",
+    "joblib==1.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "httpx==0.28.1",
+    "ruff==0.17.1",
+]
+
+[tool.setuptools]
+packages = ["model"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+# The exploratory notebook is kept for reference; the reproducible training
+# script (model/prebuild/train.py) is the source of truth.
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]

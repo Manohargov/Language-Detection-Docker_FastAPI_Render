@@ -1,1 +1,13 @@
-scikit-learn==1.6.1
+# ── Web framework ────────────────────────────────────────────────────────────
+fastapi==0.156.5
+uvicorn[standard]==0.54.0
+
+# ── Data validation ──────────────────────────────────────────────────────────
+pydantic==2.14.1
+
+# ── Machine learning ─────────────────────────────────────────────────────────
+# scikit-learn MUST match the version the artifact was trained with
+# (see model/language_detector-*.joblib -> metadata.sklearn_version),
+# otherwise scikit-learn raises InconsistentVersionWarning on load.
+scikit-learn==1.7.2
+joblib==1.6.0
