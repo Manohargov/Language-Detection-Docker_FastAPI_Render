@@ -16,6 +16,16 @@
 
 [🚀 Quick Start](#quick-start) · [📡 API](#api-reference) · [📊 Model Card](#model-card) · [🐳 Docker](#docker) · [☁️ Deploy](#deployment) · [🛠 Troubleshooting](#troubleshooting)
 
+### `POST /predict`
+
+```json
+{ "text": "Ciao, come stai?" }
+```
+
+```json
+{ "language": "Italian", "label": "Italian", "index": 8, "confidence": 1.0 }
+```
+
 </div>
 
 <details>
@@ -40,20 +50,6 @@
 - [🙏 Acknowledgements](#acknowledgements)
 
 </details>
-
-<div align="center">
-
-### `POST /predict`
-
-```json
-{ "text": "Ciao, come stai?" }
-```
-
-```json
-{ "language": "Italian", "label": "Italian", "index": 8, "confidence": 1.0 }
-```
-
-</div>
 
 ---
 
