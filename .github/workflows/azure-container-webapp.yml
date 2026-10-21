@@ -44,6 +44,9 @@ permissions:
 
 jobs:
   build:
+    # Skip when the deployment has not been configured yet
+    # (no AZURE_WEBAPP_NAME variable and/or no publish profile secret).
+    if: ${{ vars.AZURE_WEBAPP_NAME != '' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -78,6 +81,7 @@ jobs:
       contents: none
     runs-on: ubuntu-latest
     needs: build
+    if: ${{ vars.AZURE_WEBAPP_NAME != '' }}
     environment:
       name: 'Development'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
